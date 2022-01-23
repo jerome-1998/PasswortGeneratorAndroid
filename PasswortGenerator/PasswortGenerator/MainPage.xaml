@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PasswortGenerator.MainPage">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--Überschrifft-->
+        <Frame Grid.ColumnSpan="1" Grid.Row="0" BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Passwort-Generator" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+
+        <!--Eigenschaften-->
+        <StackLayout Grid.Row="1">
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="TextColor" Value="Black"></Setter>
+                        <Setter Property="FontAttributes" Value="Bold"></Setter>
+                    </Style>
+                    <Style TargetType="CheckBox">
+                        <Setter Property="Color" Value="#2196F3"></Setter>
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+
+                </Grid.RowDefinitions>
+                
+                <!--Higher Case--> 
+                <Label Text="Großbuchstaben: " Grid.Column="0"></Label>
+                <CheckBox x:Name="cbHigherCase" Grid.Column="1" HorizontalOptions="Center"></CheckBox>
+                <!--Lower Case--> 
+                <Label Text="Kleinbuchstaben: " Grid.Column="0" Grid.Row="1"></Label>
+                <CheckBox x:Name="cbLowerCase" Grid.Column="1" Grid.Row="1" HorizontalOptions="Center"></CheckBox>
+                <!--Digits-->
+                <Label Text="Zahlen: " Grid.Column="0" Grid.Row="2"></Label>
+                <CheckBox x:Name="cbDigits" Grid.Column="1" Grid.Row="2" HorizontalOptions="Center"></CheckBox>
+                <!--Special Characters-->
+                <Label Text="Sonderzeichen" Grid.Column="0" Grid.Row="3"></Label>
+                <CheckBox x:Name="cbSpecChar" Grid.Column="1" Grid.Row="3" HorizontalOptions="Center"></CheckBox>
+
+                <!--Length-->
+                <Label Text="Länge: " Grid.Column="0" Grid.Row="4"></Label>
+                <Entry x:Name="eLength" Text="" Grid.Column="1" Grid.Row="4" WidthRequest="40" MaxLength="2" HorizontalOptions="Center" Keyboard="Numeric"></Entry>
+               
+            </Grid>
+            
+            <Button x:Name="btnGenerate" Clicked="btnGenerate_Clicked" Text="Generiere Passwort" BackgroundColor="#2196F3" HorizontalOptions="Center" VerticalOptions="Center"></Button>
+            <Label Text="Generiertes Passwort: " FontSize="25" BackgroundColor="AliceBlue" TextColor="Black"></Label>
+            <Entry x:Name="eGeneratedPW" VerticalOptions="Center" FontSize="25" BackgroundColor="AliceBlue" TextColor="Black"></Entry>
+            <Button x:Name="btnCopyToClipboard" Clicked="btnCopyToClipboard_Clicked" Text="Zwischenablage" BackgroundColor="#2196F3" HorizontalOptions="Center"></Button>            
+
+
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
