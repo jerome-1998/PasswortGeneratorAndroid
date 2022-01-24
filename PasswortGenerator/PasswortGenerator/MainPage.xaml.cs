@@ -38,7 +38,7 @@ namespace PasswortGenerator
             //Declare Password Class
             Passwort pwd;
             //If one Checkbox is True use this Constructor
-            if(haslc || hashc || hasd || hassc )
+            if(haslc || hashc || hasd || hassc || eLength.Text != "" )
             {
                 pwd = new Passwort(haslc, hashc, hasd, hassc, length);
             }

@@ -23,23 +23,36 @@ namespace PasswortGenerator
         //Userspecific Constructor
         public Passwort(bool hasLC, bool hasHC, bool hasD, bool hasSC, int length)
         {
+            //declare variable to Check if User choose any charset
+            bool checkCharset = true;
+
+            //modify charset
             if (hasLC)
             {
                 _charSet = _charSet + _charSetLC;
+                checkCharset = false;
             }
             if (hasHC)
             {
                 _charSet = _charSet + _charSetHC;
+                checkCharset = false;
             }
             if (hasD)
             {
                 _charSet = _charSet + _charSetD;
+                checkCharset = false;
             }
             if (hasSC)
             {
                 _charSet = _charSet + _charSetSC;
+                checkCharset = false;
             }
 
+            //if user doesnt choose a charset, use standartcharsetcombi
+            if (checkCharset)
+            {
+                _charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ12344567890!§$%&/()=?'*_-.:,;+#~^°<>|" + '"' + "abcdefghijklmnopqrstuvwxyz";
+            }
             _length = length;
         }
         public int length
